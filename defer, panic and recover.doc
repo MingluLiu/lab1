@@ -1,9 +1,3 @@
-defer schedules a function call to be run after the function completes, which means defer moves the call to second to the end of the function
-defer is often used when resources need to be freed in some way. 
-
-panic is the function to cause a run time error. 
-
-Recover stops the panic and returns the value that was passed to the call to panic. We can handle a run-time panic with the built-in recover function. 
 
 
 A defer statement pushes a function call onto a list. The list of saved calls is executed after the surrounding function returns. Defer is commonly used to simplify functions that perform various clean-up actions.
