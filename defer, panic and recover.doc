@@ -1,0 +1,16 @@
+defer schedules a function call to be run after the function completes, which means defer moves the call to second to the end of the function
+defer is often used when resources need to be freed in some way. 
+
+panic is the function to cause a run time error. 
+
+Recover stops the panic and returns the value that was passed to the call to panic. We can handle a run-time panic with the built-in recover function. 
+
+
+A defer statement pushes a function call onto a list. The list of saved calls is executed after the surrounding function returns. Defer is commonly used to simplify functions that perform various clean-up actions.
+
+Panic is a built-in function that stops the ordinary flow of control and begins panicking. When the function F calls panic, execution of F stops, any deferred functions in F are executed normally, and then F returns to its caller. To the caller, F then behaves like a call to panic. The process continues up the stack until all functions in the current goroutine have returned, at which point the program crashes. Panics can be initiated by invoking panic directly. They can also be caused by runtime errors, such as out-of-bounds array accesses.
+
+Recover is a built-in function that regains control of a panicking goroutine. Recover is only useful inside deferred functions. During normal execution, a call to recover will return nil and have no other effect. If the current goroutine is panicking, a call to recover will capture the value given to panic and resume normal execution.
+
+
+
